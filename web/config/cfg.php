@@ -2,16 +2,16 @@
 /*
 * Constantes básicas para o funcionamento do FrameWork;
 */
-define('URL', '');
+define('URL', 'http://start.local/');
 define('ABS_USE', 'app\controllers');
 define('CONTROLLER', 'homeController');
 define('METHOD', 'index');
 define('APP_TITLE', 'startFrameWork');
 
-define('DB_HOST', '');
-define('DB_USER', '');
-define('DB_PASS', '');
-define('DB_NAME', '');
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', 'qwaszx12');
+define('DB_NAME', 'db_land');
 
 /*
 * Função de ajuda no desenvolvimento recebe a variável e executa o var_dump e encerra a aplicação.
@@ -79,4 +79,20 @@ function logado(){
     } else {
         return false;
     }
+}
+
+/*
+* Função de formatação de alertas
+* @access public
+* @return string
+*/
+function alertaMsg($formatacao, $alerta){
+    $string = '<div class="alert '.$formatacao.' alert-dismissible fade show" role="alert">
+    <strong>Alerta</strong><br>
+    '.$alerta.'
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>';
+  return $string;
 }

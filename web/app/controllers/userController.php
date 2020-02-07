@@ -28,7 +28,7 @@ class userController{
             $carregarView = new configView('user/index', $this->dados);
             $carregarView->renderizar();
         else:
-            $_SESSION['msg'] = 'Área restrita, apenas usuário logados podem ter acesso';
+            $_SESSION['msg'] = alertaMsg('alert-danger', 'Área restrita, apenas usuários logados podem ter acesso');
             header('Location:' . URL);
         endif;
     }
@@ -50,7 +50,7 @@ class userController{
             $carregarView = new configView('user/cadastrar');
             $carregarView->renderizar();
         else:
-            $_SESSION['msg'] = 'Área restrita, apenas usuário logados podem ter acesso';
+            $_SESSION['msg'] = alertaMsg('alert-danger','Área restrita, apenas usuários logados podem ter acesso');
             header('Location:' . URL);
         endif;
     }
@@ -72,16 +72,16 @@ class userController{
                     $carregarView = new configView("user/visualizarUser", $this->dados);
                     $carregarView->renderizar();
                 else:
-                    $_SESSION['msg'] = "<div class='alert alert-danger'>Necessário seleciona um Usuário!</div>";
+                    $_SESSION['msg'] = alertaMsg('alert-warning', 'Necessário selecionar um Usuário!');
                     header("Location: " . self::urlDestino);
                 endif;
 
             else:
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Necessário seleciona um Usuário!</div>";   
+                $_SESSION['msg'] = alertaMsg('alert-warning', 'Necessário selecionar um Usuário!');   
                 header("Location: " . self::urlDestino);
             endif;
         else:
-            $_SESSION['msg'] = 'Área restrita, apenas usuário logados podem ter acesso';
+            $_SESSION['msg'] = alertaMsg('alert-danger','Área restrita, apenas usuários logados podem ter acesso');
             header('Location:' . URL);
         endif;
     }
@@ -102,11 +102,11 @@ class userController{
                 $carregarView = new ConfigView("user/editarUser", $this->dados);
                 $carregarView->renderizar();
             else:
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Necessário selecionar um usuário</div>";   
+                $_SESSION['msg'] = alertaMsg('alert-warning', 'Necessário selecionar um Usuário!');   
                 header("Location: " . self::urlDestino);
             endif;
         else:
-            $_SESSION['msg'] = 'Área restrita, apenas usuário logados podem ter acesso';
+            $_SESSION['msg'] = alertaMsg('alert-danger','Área restrita, apenas usuários logados podem ter acesso');
             header('Location:' . URL);
         endif;
     }
@@ -125,17 +125,16 @@ class userController{
             $editarUsuario = new userModel();
             $editarUsuario->editar($this->userId, $this->dados);
             if (!$editarUsuario->getResultado()):
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Para editar o usuário preencha todos os campos!</div>";
+                $_SESSION['msg'] = alertaMsg('alert-warning', 'Para editar todos os campos devem ser preenchidos!');
             else:
-                $_SESSION['msg'] = "<div class='alert alert-success'>Usuário editado com sucesso!</div>";
-                $urlDestino = URL . 'userController/visualizar/' . $this->userId;
+                $_SESSION['msg'] = alertaMsg('alert-success', 'Usuário editado com sucesso!');
                 header("Location: " . self::urlDestino);
             endif;
         else:
             $verUser = new userModel();
             $this->dados = $verUser->visualizar($this->userId);
             if ($verUser->getRowCount() <= 0):
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Necessário selecionar um usuário</div>"; 
+                $_SESSION['msg'] =  alertaMsg('alert-warning', 'Necessário selecionar um Usuário!');   
                 header("Location: " . self::urlDestino);
             endif;
         endif;
@@ -155,11 +154,11 @@ class userController{
                 $ApagarUsuario = new userModel();
                 $ApagarUsuario->apagar($this->userId);
             else:
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Necessário selecionar um usuário</div>";
+                $_SESSION['msg'] =  alertaMsg('alert-warning', 'Necessário selecionar um Usuário!');   
             endif;
             header("Location: " . self::urlDestino);
         else:
-            $_SESSION['msg'] = 'Área restrita, apenas usuário logados podem ter acesso';
+            $_SESSION['msg'] = alertaMsg('alert-danger','Área restrita, apenas usuários logados podem ter acesso');
             header('Location:' . URL);
         endif;
     }

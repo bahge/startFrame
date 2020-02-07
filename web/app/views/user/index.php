@@ -59,8 +59,10 @@
                     <a href="<?php echo URL; ?>userController/visualizar/<?php echo $id; ?>"><button type="button" class="btn btn-primary" title="Visualizar Registro"><i class="fa fa-glasses" aria-hidden="true"></i></button></a>
 
                     <a href="<?php echo URL; ?>userController/editar/<?php echo $id; ?>"><button type="button" class="btn btn-warning" title="Editar Registro"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
-
-                    <a href="<?php echo URL; ?>userController/apagar/<?php echo $id; ?>"><button type="button" class="btn btn-danger" title="Apagar Registro"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+                    
+                    <?php if ($_SESSION['usuario']['id'] != $id):?>
+                      <a href="<?php echo URL; ?>userController/apagar/<?php echo $id; ?>"><button type="button" class="btn btn-danger" title="Apagar Registro"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+                    <?php endif;?>
                 </td>
 
                 <td><?php echo $nome; ?></td>

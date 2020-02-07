@@ -1,8 +1,8 @@
 <!-- Breadcrumb para auxiliar a navegação -->
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index">user</a></li>
-    <li class="breadcrumb-item active" aria-current="page">visualizarUser.php</li>
+    <li class="breadcrumb-item"><a href="<?php echo URL;?>/userController/index">Usuários</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Detalhes</li>
   </ol>
 </nav>
 <?php

@@ -48,8 +48,13 @@ body {
 
 <!-- Formulário de Login -->
 <form class="form-signin card" method="POST" action="">
-
-    <h1 class="h3 mb-3 font-weight-normal"> <img class="mb-4" src="../assets/img/icon.svg" alt="" width="72" height="72"> Vitrine Manager</h1>
+<?php
+if (isset($_SESSION['msg'])){
+    echo $_SESSION['msg'];
+    unset($_SESSION['msg']);
+}
+?>
+    <h1 class="h3 mb-3 font-weight-normal"> <img class="mb-4" src="../assets/img/icon.svg" alt="" width="72" height="72">Área Restrita</h1>
 
     <label for="login" class="sr-only">Endereço de email</label>
     <input type="text" id="login" name="login" class="form-control" placeholder="Login" required autofocus>

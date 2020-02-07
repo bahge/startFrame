@@ -10,6 +10,7 @@ class homeController{
     private $userLogin;
     private $userPass;
     private $dados;
+    const urlDestino = URL;
 
     /*
     * Função index, passa a configView a view index a ser renderizada
@@ -36,8 +37,7 @@ class homeController{
                 $this->adm();
                 exit;
             else:
-                $_SESSION['msg']['alert'] = 'alert-warning';
-                $_SESSION['msg'] = 'Erro no login, favor verifique usuário e senha!';
+                $_SESSION['msg'] = alertaMsg('alert-warning', 'Verifique os dados do login.');
             endif;
             
         endif;
@@ -55,9 +55,8 @@ class homeController{
             $carregarView = new configView('adm');
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = 'Apenas usuários logados podem acessar.';
-            $this->index();
-
+            $_SESSION['msg'] = alertaMsg('alert-warning', 'Apenas usuários logados podem acessar.');
+            header("Location:" . self::urlDestino);
         }
         
     }
@@ -92,6 +91,6 @@ class homeController{
             unset($_SESSION['usuario']['status']);
             session_destroy();
         endif;
-        header('Location:' . URL);
+        header("Location:" . self::urlDestino);
     }
 }
