@@ -22,6 +22,34 @@
             </div>
     
         </div>
+
+        <!-- Configurações -->
+        <div class="card-deck col-lg-4 mt-2">
+
+            <div class="card border-secondary">
+
+                <a href="<?php echo URL;?>configController/index" title="Configurações do site">
+
+                    <h2 class="text-ssecondary text-center my-5"><i class="fas fa-wrench fa-5x"></i></h2>
+
+                </a>
+
+                <div class="card-body">
+
+                    <p class="card-text">Configurações.</p>
+
+                </div>
+
+                <div class="card-footer">
+
+                    <small class="text-muted">v.1.0</small>
+
+                </div>               
+
+            </div>
+
+        </div>
+
     
     </div>
 
