@@ -2,13 +2,13 @@ CREATE table users (
     id int(11) AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(150),
     email VARCHAR(150),
-    pass VARCHAR(40),
-    nivel int(11),
+    password VARCHAR(40),
+    role int(11),
     status int(11)
 );
 
 INSERT INTO users 
-    (nome, email, pass, nivel, status) 
+    (nome, email, password, role, status)
     VALUES 
     (
         'Admin', 

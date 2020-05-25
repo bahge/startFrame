@@ -8,11 +8,6 @@ define('CONTROLLER', 'homeController');
 define('METHOD', 'index');
 define('APP_TITLE', 'startFrameWork');
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', 'qwaszx12');
-define('DB_NAME', 'db_land');
-
 /*
 * Função de ajuda no desenvolvimento recebe a variável e executa o var_dump e encerra a aplicação.
 * @access public

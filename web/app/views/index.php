@@ -4,3 +4,5 @@ if (isset($_SESSION['msg'])){
     unset($_SESSION['msg']);
 }
 ?>
+
+<script src="./public/dist/homepage-bundle.js"></script>

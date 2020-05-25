@@ -2,12 +2,16 @@
     "minimum-stability": "stable",
     "require": {
         "phpmailer/phpmailer": "^5.2",
-        "erusev/parsedown": "^1.7.4"
+        "erusev/parsedown": "^1.7.4",
+        "illuminate/database": "^5.8",
+        "slim/slim": "3.*",
+        "robmorgan/phinx": "0.5.*"
     },
     "autoload": {
         "psr-4": {
-            "app\\":"app"
+            "app\\":"app",
+            "database\\":"database"
         },
-        "files": ["config/cfg.php"]
+        "files": ["config/cfg.php", "config/database.php"]
     }
 }
