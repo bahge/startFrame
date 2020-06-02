@@ -3,4 +3,12 @@
 *.sqlite
 
 # pastas ignoradas
-web/vendor
+**/vendor
+
+**/node_modules/
+
+**/dist
+
+.idea/
+
+**/.DS_Store
